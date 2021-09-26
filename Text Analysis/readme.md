@@ -17,7 +17,7 @@ this codeuse 2 text analysis services { sentment_analysis, NER }
 azure translation service
 
 ## 
-the code read comments data from other code  ( Facebook comment collector repo )
+the code read comments data from other code  [Facebook Comments Collector](https://github.com/HossamAbdelraof/Facebook-Comments-Colelctor)
 
 the process steps
 
