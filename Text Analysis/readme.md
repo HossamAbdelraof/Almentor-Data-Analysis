@@ -19,8 +19,12 @@ azure translation service
 ## 
 the code read comments data from other code  ( Facebook comment collector repo )
 
-teh process steps
+the process steps
+
 1- check if the comment is amention using NER
+
 2- translate the comment to english if required and if not a mention
+
 3- apply sentment analysis to the translated comment
+
 4- save the colelcted data to .csv and .txt files
