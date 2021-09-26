@@ -28,3 +28,113 @@ the process steps
 3- apply sentment analysis to the translated comment
 
 4- save the colelcted data to .csv and .txt files
+##
+
+### NER function:
+
+```python
+def NER(text):
+    global text_analysis_client
+    
+    ## add limit to the comment or it is a spam comment
+    if len(text) > 750:
+        return True
+    
+    try:
+        
+        # send request with the text
+        NER_res = text_analysis_client.recognize_entities(documents = [text])[0]
+        
+        try:
+        
+            # check if the result is person return True
+            # if no data returns then it's not human
+            entity = NER_res.entities[0]
+            
+            if entity.category == 'Person':
+                return True
+                
+            else:
+              return False
+              
+        except IndexError:
+            return False
+        
+    except Exception as err:
+        print("Encountered exception. {}".format(err))
+```
+
+this function check if the comment is mantioned person or human name 
+if return True if name found and False if any else
+
+#
+### Translate Function:
+
+```python
+def translate(text):
+    
+    global translate_key
+    global translate_endpoint
+    global is_human
+    
+    if is_human:
+        return text
+     
+    # subscription key and endpoint
+    subscription_key = translate_key
+    endpoint = translate_endpoint   
+
+    # select endpoint resource url url
+    constructed_url = endpoint + '/translate'
+
+    # set request parameters and headers
+    params = {
+        'api-version': '3.0',
+        'to': 'en',
+        'toScript': 'latn'}  
+
+    headers = {
+        'Ocp-Apim-Subscription-Key': subscription_key,
+        'Ocp-Apim-Subscription-Region': "eastus",
+        'Content-type': 'application/json',
+        'X-ClientTraceId': str(uuid.uuid4())
+
+    # set body {text or document to translate}.
+    body = [{
+        'text': text}]
+
+    
+    # send the request and get translated comment
+    request = requests.post(constructed_url, params=params, headers=headers, json=body)
+    
+        # convert data to json
+    response = request.json()
+
+    # return translated text
+    return response[0]['translations'][0]['text']
+```
+
+this function translate the comment to englist using azure Cognitive Translation request 
+but if the comment is human name it return the name without translation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
