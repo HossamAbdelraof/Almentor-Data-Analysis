@@ -161,10 +161,10 @@ data = {"text":[],
 ```
 data table contain many columns 
 
-> text: the orignal text to merge on (in the next code)
-Translated: the translated comment
-is_human: if the comment is human or not
-sentent: the sentment rank 
+> text: the orignal text to merge on (in the next code)<br />
+Translated: the translated comment<br />
+is_human: if the comment is human or not<br />
+sentent: the sentment rank<br />
 
 
 
