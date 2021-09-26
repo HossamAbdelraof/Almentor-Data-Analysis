@@ -117,11 +117,54 @@ def translate(text):
 this function translate the comment to englist using azure Cognitive Translation request 
 but if the comment is human name it return the name without translation
 
+#
+### Sentment Analysis Function:
+```python
+def sentiment_analysis(translated):
+    
+    global text_analysis_client
+    
 
+    if not(is_human):
+        
 
+        ## analyse translated text score
+        response =  text_analysis_client.analyze_sentiment(documents=[translated])[0]
+        ## P1 is the overall sentment 
+        p1 = "Document Sentiment: {}\n".format(response.sentiment)
+        ## P2 is every rate score 
+        p2 = "\nOverall scores: positive={0:.2f}; neutral={1:.2f}; negative={2:.2f} \n".format(
+            response.confidence_scores.positive,
+            response.confidence_scores.neutral,
+            response.confidence_scores.negative)
+        
+        result = p1 + p2
+        
+        return result
+        
+    
+    # if the result is human name
+    # will not ranslate and assume the text is neutral
+    else:
+        result = "Document Sentiment: neutral\n" + "Overall scores: positive=0.00; neutral=1.00; negative=0.00\n"
+        return result
+```
+this function apply sentment analysis on the translated comment and get it' negative/positive/neutral rank and every statement propability
 
+# 
+### the data Table:
+```python
+data = {"text":[],
+        "Translate":[],
+        "is_human":[],
+        "Sentiment":[]}
+```
+data table contain many columns 
 
-
+> text: the orignal text to merge on (in the next code)
+Translated: the translated comment
+is_human: if the comment is human or not
+sentent: the sentment rank 
 
 
 
