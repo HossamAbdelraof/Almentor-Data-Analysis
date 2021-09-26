@@ -167,4 +167,60 @@ is_human: if the comment is human or not<br />
 sentent: the sentment rank<br />
 
 
+#
+### Start Function:
+the start  function call the main 3 function and write the result to .txt file andad it to the data table<br />
+```python
+def start(file, start= 0, end = -1):
+    global data
+    
+    try: 
+        if start == end:
+            print("Data Limit Reached")
+            return
+
+
+        # load text from the data frame
+        text = df.message[start]
+
+        # checkif the comment is human mention
+        is_human = NER(text)
+
+        # translate the text to English
+        translated = translate(text)
+ 
+
+        # runsentment analysis on translated text
+        result = sentiment_analysis(translated)
+
+
+        ## add text to DF
+        data["text"].append(text)
+
+        ## Add humanity uesult
+        file.write("\nis human: {}\n".format(is_human))
+        data["is_human"].append(is_human)
+
+        ## add Translated text 
+        file.write("Translate: {}\n".format(translated))
+        data["Translate"].append(translated)
+
+        ## add analysis result
+        data["Sentiment"].append(result)
+        file.write(result)
+
+        ## write Done and indexnumber 
+        file.write("\n done {}\n".format(start))
+
+        """
+        Recall the Function Again until no Data or reach limit
+        """
+        start(file, start+1)
+        
+        
+    except KeyError as e:
+        print("No More Data\nprocessis done")
+        return
+```
+
 
