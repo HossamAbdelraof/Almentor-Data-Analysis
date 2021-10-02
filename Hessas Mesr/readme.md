@@ -1,17 +1,21 @@
-## headers 
-term
-: definition
+# DAta analysis for Hessas Mesr Facebook Data 
 
-*This text will be italic*
+the rebo contain 3 file 
+## 1- explore Data 
+##
+first code explore pure data from Facebook comments, explore pattern and data
 
-_This will also be italic_
+#
+#
 
-**This text will be bold**
+## 2- Live revision filter
+## 
+second code filter the live revision data from other data and save them seprately 
 
-__This will also be bold__
+#
+#
+## 3- explore no live data
+##
+explore the data without live reision videos data <br>
+explore live video data and plot a wordcloud
 
-*You **can** combine them*
-
-
-ttp://github.com - automatic!
-[GitHub](http://github.com)
