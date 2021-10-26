@@ -1,5 +1,9 @@
 # Almentor-Data-Analysis
-all data analysis for Almentor.net internship projects
+
+this analysis is next step of gathering data with Facebook API [in this repo](https://github.com/HossamAbdelraof/Facebook)
+
+this project based in 2 steps  *Text  analysis in the result* to check the people interactions in comments  and 
+ 
 here worked with 3 phases 
 
 1- text analysis <br /><br />
