@@ -20,4 +20,5 @@ the text analysis based on series steps:
 
 |1- |*Translate*: |translate the comments with Azure translation REST API|
 |--- | --- | --- |
-|2- |_NER_: | the answer here|
+|2- |_NER_: | apply Nane Entity Recognition to the translated text to findout if it is a name or mention|
+|--- | --- | --- |
