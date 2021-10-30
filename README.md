@@ -16,5 +16,8 @@ the data we got from Facebook is comments, so we need to find peoples interactio
 from the analysis we can extract names and mentions, rating comments, complaints
 
 the text analysis based on series steps:
+
+
 |1- |*Translate*: |translate the comments with Azure translation REST API|
+|--- | --- | --- |
 |2- |_NER_: | the answer here|
