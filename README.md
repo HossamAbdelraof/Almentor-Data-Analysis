@@ -17,10 +17,9 @@ from the analysis we can extract names and mentions, rating comments, complaints
 
 the text analysis based on series steps:
 
-
+|No. | Function | Function job |
+|--- | --- | --- |
 |1- |*Translate*: |translate the comments with Azure translation REST API|
-|--- | --- | --- |
 |2- |_NER_: | apply Nane Entity Recognition to the translated text to findout if it is a name or mention|
-|--- | --- | --- |
 |3- |_Text Rating_: | rate the text \[positive, negative, neutral\]|
 
